@@ -1,60 +1,120 @@
 <!DOCTYPE html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+<style> 
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    body{
+        margin-top: 80px;
+        width: 80%;
+        margin: 0 auto;
+    }
     
-    * {
-        font-family: 'Roboto';
+    
+    h1 {
+        font-family: 'Prompt', sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        color: #171E27;
+    }
+    
+    p {
+        margin-top: -12px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        font-size: 12px;
+        color: #919CA2;
+    }
+    
+    .info {
+        margin-bottom: 12px;
+        padding-bottom: 0px
+    }
+    
+    .text-field {
+        width: 100%;
+        margin-right: 20px;
+    }
+    
+    .text-field__label {
+        width: 100%;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        color: #919CA2;
+    }
+    
+    .input {
+        height: 60px;
+        width: 100%;
+        margin-right: 20px;
+        padding-left: 24px;
+        margin-top: 8px;
+        background-color: #F5F7F9;
+        color: #171E27;
+        border-radius: 12px;
+        border: none;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+   }
+    
+    .input::placeholder{
+        color:#BFC6CC;
+        font-size: 12px;
+    }
+    .input:hover {
+        outline: 2px solid #919CA2;
+    }
+    
+    .input:focus {
+        outline: 2px solid #8A24F3;
+    }
+    
+    #email {
+        margin-right: 0px;
     }
 
-   .input {
-    height: 60px;
-    max-width: 300px;
-    width: 300px;
-    background-color: rgba(144, 144, 144, 0.1);
-    border-radius: 12px;
-    border: none;
-   }
-
    .container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
+        display: flex;
+        flex-direction: column;
     }
 
     .row {
         flex: 1;
-        padding: 10px;
+        width: 100%;
+        padding-bottom: 16px;
         display: flex;
         flex-direction: row;
     }
-
-    input[type="text"] {
-        margin-right: 20px;
-        padding-left: 24px;
-        font-size: 16px;
-        box-sizing: border-box;
+    
+    .pole {
+        margin-top: 60px;
     }
 
     button {
-        width: 200px;
         height: 60px;
+        max-width: 300px;
+        width: 300px;
         border: none;
-        background-color: rgb(58, 107, 255);
-        color: white;
+        background-color: #8A24F3;
+        color: #fff;
         border-radius: 12px;
         cursor: pointer;
-        width: 300px;
-        font-size: 16px;
+        font-size: 14px;
+        margin-right: 20px;
     }
 
 </style>
 
-<body style="margin-top: 80px; display: flex; align-items: center; flex-direction: column;">
-
+<body>
+    <div class="signature"> <h1>Email signature</h1>
     <div id="sign">
         <table width="600px" height="155px" cellpadding="0" cellspacing="0" border="0px" style="border-radius: 24px; background-color:#F5F7F9; padding: 0px 0px 0px 24px;">
             <tbody cellpadding="0" cellspacing="0">
@@ -75,10 +135,10 @@
                 
                 <!-- Company logo -->
                  <td valign="center" align="center" rowspan="2" style="padding: 24px 0px 0px 28px;">
-                     <a href='https://mtrading.com' valign="center"><img src="https://drive.google.com/a/mtrading.com/uc?id=19mFJhlR2GXjqtH3P9JfXndvS9bCnL76P&export=download" width="23px" height="18px"/></a>
+                     <a id="sign_Web" href='https://mtrading.com' valign="center"><img src="https://drive.google.com/a/mtrading.com/uc?id=19mFJhlR2GXjqtH3P9JfXndvS9bCnL76P&export=download" width="23px" height="18px"/></a>
                 </td>
                  <td valign="center" align="center" rowspan="2" colspan="4" style="padding: 24px 24px 4px 0px;">
-                    <a href='https://mtrading.com' valign="center" style="font-family: 'Arial', sans-serif; font-weight: 600; font-size: 14px;letter-spacing: 2px; font-stretch: expanded; color: #171E27; text-decoration: none">MTRADING</a>
+                    <a id="sign_Web2" href='https://mtrading.com' valign="center" style="font-family: 'Arial', sans-serif; font-weight: 600; font-size: 14px;letter-spacing: 2px; font-stretch: expanded; color: #171E27; text-decoration: none">MTRADING</a>
                 </td>
             </tr>
             <tr>
@@ -95,19 +155,19 @@
                 
                 <!-- Company social -->
                   <td class="icon" rowspan="2" align="center" style="padding: 0px 8px 36px 20px;">
-                    <a href='https://www.instagram.com/mtrading_official/'><img src="https://drive.google.com/a/mtrading.com/uc?id=1VQJzqdJTGkrHe9ULWriRoRtzDOU9MNaS&export=download" width="20px" height="20px"/></a>
+                    <a id="sign_Inst" href='https://www.instagram.com/mtrading_official/'><img src="https://drive.google.com/a/mtrading.com/uc?id=1VQJzqdJTGkrHe9ULWriRoRtzDOU9MNaS&export=download" width="20px" height="20px"/></a>
                 </td>
                 <td class="icon" rowspan="2" align="center" style="padding: 0px 8px 36px 0px;">
-                    <a href='https://t.me/MtradingClub'><img src="https://drive.google.com/a/mtrading.com/uc?id=1RNxXC4DQ9y66KV5mPO8qGbG9SroPQHHF&export=download" width="20px" height="20px"/></a>
+                    <a id="sign_Tel" href='https://t.me/MtradingClub'><img src="https://drive.google.com/a/mtrading.com/uc?id=1RNxXC4DQ9y66KV5mPO8qGbG9SroPQHHF&export=download" width="20px" height="20px"/></a>
                 </td>
                 <td class="icon" rowspan="2" align="center" style="padding: 0px 8px 36px 0px;">
-                    <a href='https://www.facebook.com/MTradingGlobal/'><img src="https://drive.google.com/a/mtrading.com/uc?id=1nzRaoqSqLUTtgsoukDR6fmvB_AUofp3N&export=download" width="20px" height="20px"/></a>
+                    <a id="sign_Fac" href='https://www.facebook.com/MTradingGlobal/'><img src="https://drive.google.com/a/mtrading.com/uc?id=1nzRaoqSqLUTtgsoukDR6fmvB_AUofp3N&export=download" width="20px" height="20px"/></a>
                 </td>
                  <td class="icon" rowspan="2" align="center" style="padding: 0px 8px 36px 0px;">
-                    <a href='https://www.linkedin.com/company/mtrading'><img src="https://drive.google.com/a/mtrading.com/uc?id=1QhnY-yddUtRqbcUyFXMkvdXw7GktFyvc&export=download" width="20px" height="20px"/></a>
+                    <a id="sign_Link" href='https://www.linkedin.com/company/mtrading'><img src="https://drive.google.com/a/mtrading.com/uc?id=1QhnY-yddUtRqbcUyFXMkvdXw7GktFyvc&export=download" width="20px" height="20px"/></a>
                 </td>
                 <td class="icon" rowspan="2" align="center" style="padding: 0px 24px 36px 0px;">
-                    <a href='https://twitter.com/Mtrading'><img src="https://drive.google.com/a/mtrading.com/uc?id=109kHK1d2rT0cEM2fWxbK-I5RVWbvbFIc&export=download" width="20px" height="20px"/></a>
+                    <a id="sign_Twit" href='https://twitter.com/Mtrading'><img src="https://drive.google.com/a/mtrading.com/uc?id=109kHK1d2rT0cEM2fWxbK-I5RVWbvbFIc&export=download" width="20px" height="20px"/></a>
                 </td>
             </tr> 
             <tr>
@@ -118,28 +178,84 @@
             </tr>
             </tbody>
             </table>
+    </div></div>
+
+    <div class="pole">
+    <div class="container">
+        <div class="info">
+        <h1>Employee Information</h1>
+            <p>Fill in all the fields to create your personal signature. The entered result will be displayed above. The used photo needs to be uploaded to a working Google drive.</p>
+        </div>
+        <div class="row">
+            <div class="text-field">
+                <label class="text-field__label">You name</label>
+                <input id="name" placeholder="Jonh Johnson" type="text" class="input">
+            </div>
+            <div class="text-field">
+                <label class="text-field__label">You position</label>
+                <input id="position" placeholder="IT Developer" type="text" class="input">
+            </div>
+            <div class="text-field">
+                <label class="text-field__label">You phone number</label>
+                <input id="phone" placeholder="+79313778876" type="text" class="input">
+            </div>
+            <div class="text-field">
+                <label class="text-field__label">You email</label>
+                <input id="email" placeholder="johnjohnson@mtradin.com" type="text" class="input">
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="text-field">
+                <label class="text-field__label">You phoyo link</label>
+                <input id="photo" placeholder="Paste the link from Google drive" type="text" class="input">
+            </div>
+
+
+        </div>
+    </div>
     </div>
 
     <div class="container">
-
+        <div class="info">
+        <h1>Company Link</h1>
+            <p>These fields are required to be filled in only if you need links leading to a local website and local social networks of the company</p>
+        </div>
         <div class="row">
-
-            <input id="name" placeholder="Full name" type="text" class="input">
-            <input id="position" placeholder="Your position" type="text" class="input">
-            <input id="photo" placeholder="Link to photo" type="text" class="input">
+            <div class="text-field">
+                <label class="text-field__label">Web site</label>
+                <input id="website" placeholder="https://mtrading.io/" type="text" class="input">
+            </div>
+            <div class="text-field">
+                <label class="text-field__label">Instagram</label>
+                <input id="instagram" placeholder="https://www.instagram.com/mtrading_official/" type="text" class="input">
+            </div>
+            <div class="text-field">
+                <label class="text-field__label">Telegram</label>
+                <input id="telegram" placeholder="https://t.me/MtradingClub" type="text" class="input">
+            </div>
 
         </div>
 
         <div class="row">
 
-            <input id="phone" placeholder="Phone number" type="text" class="input"> <br>
-            <input id="email" placeholder="Email address" type="text" class="input"><br>
-            <button id="button">Copy signature</button>
+            <div class="text-field">
+                <label class="text-field__label">Facebook</label>
+                <input id="facebook" placeholder="https://www.facebook.com/MTradingGlobal/" type="text" class="input">
+            </div>
+            <div class="text-field">
+                <label class="text-field__label">linkedin</label>
+                <input id="linkedin" placeholder="https://www.linkedin.com/company/mtrading" type="text" class="input">
+            </div>
+            <div class="text-field">
+                <label class="text-field__label">Twitter</label>
+                <input id="twitter" placeholder="https://twitter.com/Mtrading" type="text" class="input">
+            </div>
 
         </div>
     </div>
-
-
+            <div align="right" style="margin-top: 24px; width: 100%;"><button id="button">Copy signature</button></div>
 
     <script>
 
@@ -164,6 +280,35 @@
         $('#sign_Email').attr("href", "mailto:" + $(this).val())
     });
 
+    $("#website").on("input", function() {
+        $('#sign_Web').attr("href", $(this).val())
+    });
+    
+    $("#website").on("input", function() {
+        $('#sign_Web2').attr("href", $(this).val())
+    });
+        
+        
+    $("#instagram").on("input", function() {
+        $('#sign_Inst').attr("href", $(this).val())
+    });
+        
+    $("#telegram").on("input", function() {
+        $('#sign_Tel').attr("href", $(this).val())
+    });
+        
+    $("#facebook").on("input", function() {
+        $('#sign_Fac').attr("href", $(this).val())
+    });    
+        
+    $("#linkedin").on("input", function() {
+        $('#sign_Link').attr("href" + $(this).val())
+    });
+        
+    $("#twitter").on("input", function() {
+        $('#sign_Twit').attr("href", $(this).val())
+    });
+        
     $("#photo").on("input", function() {
 
         var coolVar = $(this).val();
