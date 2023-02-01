@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
 <style> 
@@ -35,8 +36,8 @@
     }
     
     .info {
-        margin-bottom: 12px;
-        padding-bottom: 0px
+        padding-bottom: 0px;
+        margin-bottom: -10px;
     }
     
     .text-field {
@@ -132,6 +133,37 @@
         width: 100%;
         margin: 0 30px;
      }
+
+    #upload {
+        display: none;
+
+     }
+
+    #uploadWrap {
+        cursor: pointer;
+        font-size: 20px;
+        font-family: 'Inter';
+        font-weight: 500;
+        display: flex;
+        height: 80px;
+        justify-content: center;
+        border: 2px #dee2e6 dotted;
+        background: none;
+        padding-bottom: 2px;
+        transition: all .3s ease;
+    }
+
+    #uploadWrap:hover {
+        background-color: #f3f5f7;
+        border: 2px #f3f5f7 dotted;
+    }
+
+    #uploadWrap span{
+        height: 20px;
+        color: #767a7c;
+        align-self: center;
+    }
+
 
      @media screen and (min-width: 1700px) {
 
@@ -233,9 +265,10 @@
                     <tr>
                         
                         <!-- Change Photo -->
-                        <td rowspan="4" valign="center" align="left">
+                        <td  rowspan="4" valign="center" align="left" style="border-radius: 65px;">
                             <!-- Avatar link -->                       
-                            <img id="sign_Photo" style="border-radius: 65px;" src="https://drive.google.com/a/mtrading.com/uc?id=1Oe5Xlpef8B9P38djmkhv_4NgI-CFqOoW&export=download" width="106px" />
+                            <div id="sign_Photo"" style="background-image: url('https://drive.google.com/a/mtrading.com/uc?id=1Oe5Xlpef8B9P38djmkhv_4NgI-CFqOoW&export=download'); border-radius: 65px; width: 106px; height: 106px; background-size: cover;"></div>
+                        
                         </td>
                         
                         <!-- Change Name -->
@@ -295,12 +328,20 @@
 
                 </div>
         
+       
+
         <div class="sidebar">
 
             <div class="pole">
             <div class="container">
                 <div class="info">
                 <h1>Employee Information</h1>
+                </div>
+                <div class="row">
+                    <div id="uploadWrap" class="input">
+                        <span style="margin-bottom: 8px; margin-right: 12px; font-size: 32px;" class="material-symbols-rounded">cloud_upload</span>
+                        <span>Upload avatar</span></div>
+                    <input type="file" id="upload" onchange="previewFile()">
                 </div>
                 <div class="row">
                         <div class="text-field">
@@ -325,14 +366,13 @@
                     </div>
                 </div>
         
-                <div class="row">
+                <!-- <div class="row">
                     <div class="text-field">
                         <label class="text-field__label">Your photo link</label>
                         <input id="photo" placeholder="Paste the link from Google drive" type="text" class="input">
                     </div>
-        
-        
-                </div>
+                </div> -->
+
             </div>
             </div>
         
@@ -388,6 +428,26 @@
     </div>
 
     <script>
+
+    function previewFile() {
+        const preview = document.querySelector('#sign_Photo');
+        const file = document.querySelector('input[type=file]').files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener("load", () => {
+            // convert image file to base64 string
+            preview.src = reader.result;
+            $("#sign_Photo").css("background-image", "url(" + preview.src + ")");
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+
+    $("#uploadWrap").click(function(){
+        $("#upload").trigger('click'); 
+    });
 
     function update(input, item) {
         item.text(input.val());
