@@ -228,7 +228,7 @@
     <div class="signature">
  
         <div id="sign">
-                <table width="600px" height="155px" cellpadding="0" cellspacing="0" border="0px" style="border-radius: 24px; background-color:#F5F7F9; padding: 0px 0px 0px 24px;">
+                <table id="sign_table" width="600px" height="155px" cellpadding="0" cellspacing="0" border="0px" style="border-radius: 24px; background-color:#F5F7F9; padding: 0px 0px 0px 24px;">
                     <tbody cellpadding="0" cellspacing="0">
                     <tr>
                         
@@ -454,11 +454,11 @@
         function select(id) {
             window.getSelection()
             .selectAllChildren(
-            document.getElementById("sign") 
+            document.getElementById("sign_table") 
         ); document.execCommand("copy"); document.getSelection().removeAllRanges();
         } 
 
-        select($("#sign"));
+        select($("#sign_table"));
 
         $(".alert").addClass('alert_active');
 
